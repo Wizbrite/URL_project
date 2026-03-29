@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Ensure the app behaves correctly in subdirectories
+RewriteBase /URL_project/public/
+
+# Redirect to index.php if the requested file/folder doesn't exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
