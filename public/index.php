@@ -46,6 +46,12 @@ $router->add('GET', '/analytics/{id}', 'AnalyticsController@show');
 $router->add('GET', '/profile', 'ProfileController@index');
 $router->add('POST', '/profile/update', 'ProfileController@update');
 
+// Support Pages
+$router->add('GET', '/privacy', 'SupportController@privacy');
+$router->add('GET', '/terms', 'SupportController@terms');
+$router->add('GET', '/api', 'SupportController@api');
+$router->add('GET', '/contact', 'SupportController@contact');
+
 // Dynamic redirection route (catch-all for short slugs)
 $router->add('GET', '/{slug}', 'RedirectController@handle');
 

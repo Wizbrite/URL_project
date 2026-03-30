@@ -9,20 +9,26 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body data-theme="light">
-    <nav class="card" style="margin: 1rem; display: flex; justify-content: space-between; align-items: center; border-radius: 0.5rem; padding: 1rem 2rem;">
-        <a href="/URL_project/public/" style="text-decoration: none; font-weight: 700; color: var(--primary-color); font-size: 1.25rem;">URLShortener</a>
-        <div style="display: flex; gap: 1rem; align-items: center;">
+    <?php 
+        $currentUri = $_SERVER['REQUEST_URI'];
+        function isActive($path, $current) {
+            return strpos($current, $path) !== false ? 'active' : '';
+        }
+    ?>
+    <nav class="card nav-container">
+        <a href="/URL_project/public/" class="nav-logo">URLShortener</a>
+        <div class="nav-links">
             <?php if (isset($_SESSION['user_id'])): ?>
-                <a class="" href="/URL_project/public/dashboard" style="text-decoration: none; color: var(--text-color);">Dashboard</a>
-                <a class="" href="/URL_project/public/history" style="text-decoration: none; color: var(--text-color);">History</a>
-                <a class="" href="/URL_project/public/profile" style="text-decoration: none; color: var(--text-color);">Profile</a>
-                <a class="" href="/URL_project/public/logout" class="btn btn-primary">Logout</a>
+                <a class="nav-link <?= isActive('/dashboard', $currentUri) ?>" href="/URL_project/public/dashboard">Dashboard</a>
+                <a class="nav-link <?= isActive('/history', $currentUri) ?>" href="/URL_project/public/history">History</a>
+                <a class="nav-link <?= isActive('/profile', $currentUri) ?>" href="/URL_project/public/profile">Profile</a>
+                <a class="btn btn-primary" href="/URL_project/public/logout">Logout</a>
             <?php else: ?>
-                <a class="btn btn-primary" href="/URL_project/public/login" style="text-decoration: none; color: var(--text-color);">Login</a>
+                <a class="nav-link <?= isActive('/login', $currentUri) ?>" href="/URL_project/public/login">Login</a>
                 <a href="/URL_project/public/register" class="btn btn-primary">Register</a>
             <?php endif; ?>
-            <button id="theme-toggle" class="btn" style="background: none; color: var(--text-color); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; padding: 0.5rem;">
-                <span class="material-symbols-outlined" style="font-size: 1.25rem;">dark_mode</span>
+            <button id="theme-toggle" class="btn theme-btn">
+                <span class="material-symbols-outlined">dark_mode</span>
             </button>
         </div>
     </nav>

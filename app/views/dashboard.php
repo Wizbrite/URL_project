@@ -24,11 +24,11 @@
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
         <div class="card" style="text-align: center;">
             <p style="font-size: 0.875rem; opacity: 0.7;">Total Links</p>
-            <h3 style="font-size: 2rem; color: var(--primary-color);">0</h3>
+            <h3 style="font-size: 2rem; color: var(--primary-color);"><?= $totalLinks ?? 0 ?></h3>
         </div>
         <div class="card" style="text-align: center;">
             <p style="font-size: 0.875rem; opacity: 0.7;">Total Clicks</p>
-            <h3 style="font-size: 2rem; color: var(--primary-color);">0</h3>
+            <h3 style="font-size: 2rem; color: var(--primary-color);"><?= $totalClicks ?? 0 ?></h3>
         </div>
     </div>
 </div>

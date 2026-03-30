@@ -55,14 +55,6 @@
         </form>
     </div>
     
-    <div class="card" style="margin-top: 2rem; border-color: #e2e8f0; background: #e2e8f010;">
-        <h3 style="margin-bottom: 1rem; font-size: 1rem;">System Requirements</h3>
-        <ul style="padding-left: 1.5rem; font-size: 0.875rem; opacity: 0.8; line-height: 1.8;">
-            <li>PHP 8.0+ recommended</li>
-            <li>MySQL/MariaDB with PDO support</li>
-            <li>Apache mod_rewrite enabled</li>
-            <li>Support for .htaccess files</li>
-        </ul>
     </div>
 </div>
 

@@ -25,10 +25,10 @@
             <div class="footer-section">
                 <h4>Support</h4>
                 <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Developer API</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="/URL_project/public/privacy">Privacy Policy</a></li>
+                    <li><a href="/URL_project/public/terms">Terms of Service</a></li>
+                    <li><a href="/URL_project/public/api">Developer API</a></li>
+                    <li><a href="/URL_project/public/contact">Contact Us</a></li>
                 </ul>
             </div>
         </div>
