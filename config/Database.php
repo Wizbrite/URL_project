@@ -7,36 +7,35 @@ use PDOException;
 
 /**
  * Database configuration and connection manager.
- * 
- * Provides a static method to obtain a shared PDO connection instance.
+ *
+ * Reads connection details from environment variables (loaded via .env)
+ * so that no credentials are ever hardcoded in source control.
  */
 class Database {
-    /** @var string Hostname for the database connection. */
-    private static $host = 'localhost';
-    /** @var string Name of the database. */
-    private static $db_name = 'url_shortener';
-    /** @var string Username for the database connection. */
-    private static $username = 'root';
-    /** @var string Password for the database connection. */
-    private static $password = 'njini000';
     /** @var \PDO|null The shared PDO connection instance. */
     private static $conn;
 
     /**
      * Returns a singleton PDO connection to the database.
-     * 
+     *
+     * Reads DB_HOST, DB_NAME, DB_USER, and DB_PASS from the environment.
      * Configures the connection with error exceptions and associative fetch mode.
      * Terminates the script if connection fails.
-     * 
+     *
      * @return \PDO The database connection.
      */
     public static function getConnection() {
         if (self::$conn === null) {
+            $host   = \env('DB_HOST', 'localhost');
+            $dbName = \env('DB_NAME', '');
+            $user   = \env('DB_USER', 'root');
+            $pass   = \env('DB_PASS', '');
+
             try {
                 self::$conn = new PDO(
-                    "mysql:host=" . self::$host . ";dbname=" . self::$db_name,
-                    self::$username,
-                    self::$password
+                    "mysql:host={$host};dbname={$dbName};charset=utf8mb4",
+                    $user,
+                    $pass
                 );
                 self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 self::$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);

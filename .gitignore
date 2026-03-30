@@ -1,0 +1,14 @@
+# Environment – sensitive credentials, never commit
+.env
+
+# PHP dependencies
+/vendor/
+
+# IDE / OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Logs
+*.log
