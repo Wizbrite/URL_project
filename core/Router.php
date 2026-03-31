@@ -43,7 +43,7 @@ class Router {
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];
 
-        // Remove subdirectory if any (e.g. /URL_project/)
+        // Remove subdirectory if any (detects automatically if served from a folder)
         $basePath = dirname($_SERVER['SCRIPT_NAME']);
         if ($basePath !== '/' && strpos($uri, $basePath) === 0) {
             $uri = substr($uri, strlen($basePath));

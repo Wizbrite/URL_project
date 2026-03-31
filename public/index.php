@@ -7,7 +7,7 @@
  */
 
 // Load environment variables from .env (must run before autoloader touches env vars)
-require_once dirname(__DIR__) . '/core/Env.php';
+require_once dirname(__DIR__) . '/Core/Env.php';
 \Core\Env::load(dirname(__DIR__));
 
 // Autoload classes based on namespace

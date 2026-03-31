@@ -15,20 +15,20 @@
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="/URL_project/public/">Home</a></li>
-                    <li><a href="/URL_project/public/dashboard">Dashboard</a></li>
-                    <li><a href="/URL_project/public/history">History</a></li>
-                    <li><a href="/URL_project/public/profile">Profile</a></li>
+                    <li><a href="<?= base_url() ?>">Home</a></li>
+                    <li><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
+                    <li><a href="<?= base_url('history') ?>">History</a></li>
+                    <li><a href="<?= base_url('profile') ?>">Profile</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
                 <h4>Support</h4>
                 <ul>
-                    <li><a href="/URL_project/public/privacy">Privacy Policy</a></li>
-                    <li><a href="/URL_project/public/terms">Terms of Service</a></li>
-                    <li><a href="/URL_project/public/api">Developer API</a></li>
-                    <li><a href="/URL_project/public/contact">Contact Us</a></li>
+                    <li><a href="<?= base_url('privacy') ?>">Privacy Policy</a></li>
+                    <li><a href="<?= base_url('terms') ?>">Terms of Service</a></li>
+                    <li><a href="<?= base_url('api') ?>">Developer API</a></li>
+                    <li><a href="<?= base_url('contact') ?>">Contact Us</a></li>
                 </ul>
             </div>
         </div>

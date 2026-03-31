@@ -80,7 +80,7 @@ namespace {
         /**
          * Build an absolute URL using the APP_URL env variable.
          *
-         * On Laragon/Windows set APP_URL=http://localhost/URL_project/public
+         * On Laragon/Windows set APP_URL=http://localhost/your-project/public
          * On a Unix vhost set APP_URL=https://yourdomain.com
          *
          * @param string $path Optional path to append (leading slash optional).
@@ -89,6 +89,15 @@ namespace {
         function base_url(string $path = ''): string
         {
             $base = rtrim(env('APP_URL', ''), '/');
+            
+            if (empty($base)) {
+                // Determine base URL dynamically if not set
+                $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https" : "http";
+                $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+                $scriptDir = dirname($_SERVER['SCRIPT_NAME'] ?? '');
+                $base = $protocol . "://" . $host . rtrim($scriptDir, '/\\');
+            }
+            
             return $path === '' ? $base : $base . '/' . ltrim($path, '/');
         }
     }

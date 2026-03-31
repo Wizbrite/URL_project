@@ -1,4 +1,4 @@
-<?php require_once '../app/views/layout/header.php'; ?>
+<?php require_once __DIR__ . '/../../layout/header.php'; ?>
 
 <div style="text-align: center; padding: 4rem 1rem;">
     <h1 style="font-size: 3rem; margin-bottom: 1rem; color: var(--text-color);">Shorten Your <span style="color: var(--primary-color);">Long Links</span></h1>
@@ -8,10 +8,10 @@
     
     <div style="display: flex; gap: 1rem; justify-content: center;">
         <?php if (!isset($_SESSION['user_id'])): ?>
-            <a href="/URL_project/public/register" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.125rem;">Get Started for Free</a>
-            <a href="/URL_project/public/login" class="btn" style="padding: 1rem 2rem; font-size: 1.125rem; border: 1px solid var(--border-color); color: var(--text-color);">Sign In</a>
+            <a href="<?= base_url('register') ?>" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.125rem;">Get Started for Free</a>
+            <a href="<?= base_url('login') ?>" class="btn" style="padding: 1rem 2rem; font-size: 1.125rem; border: 1px solid var(--border-color); color: var(--text-color);">Sign In</a>
         <?php else: ?>
-            <a href="/URL_project/public/dashboard" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.125rem;">Go to Dashboard</a>
+            <a href="<?= base_url('dashboard') ?>" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.125rem;">Go to Dashboard</a>
         <?php endif; ?>
     </div>
     
@@ -34,4 +34,4 @@
     </div>
 </div>
 
-<?php require_once '../app/views/layout/footer.php'; ?>
+<?php require_once __DIR__ . '/../../layout/footer.php'; ?>

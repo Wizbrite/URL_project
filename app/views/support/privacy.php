@@ -1,4 +1,4 @@
-<?php require_once '../app/views/layout/header.php'; ?>
+<?php require_once __DIR__ . '/../../layout/header.php'; ?>
 
 <div class="card" style="max-width: 800px; margin: 2rem auto; padding: 2.5rem;">
     <h1 style="color: var(--primary-color); margin-bottom: 1.5rem;">Privacy Policy</h1>
@@ -20,4 +20,4 @@
     </div>
 </div>
 
-<?php require_once '../app/views/layout/footer.php'; ?>
+<?php require_once __DIR__ . '/../../layout/footer.php'; ?>
