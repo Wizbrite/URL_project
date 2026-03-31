@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controllers;
+namespace app\controllers;
 
-use Core\Controller;
-use App\Models\Link;
+use core\Controller;
+use app\models\Link;
 
 /**
  * LinkController handles link creation, history viewing, and deletion.
@@ -17,7 +17,7 @@ class LinkController extends Controller {
      */
     public function __construct() {
         if (!isset($_SESSION['user_id'])) {
-            $this->redirect(base_url('login'));
+            $this->redirect('/URL_project/public/login');
         }
         $this->validateCsrfToken();
         $this->linkModel = new Link();
@@ -65,13 +65,13 @@ class LinkController extends Controller {
                 // Highly unlikely for random slug, but handle it
                 $slug = $this->generateSlug();
                 $this->linkModel->create($userId, $longUrl, $slug);
-                $this->redirect(base_url('history'));
+                $this->redirect('/URL_project/public/history');
             }
             return;
         }
 
         if ($this->linkModel->create($userId, $longUrl, $slug)) {
-            $this->redirect(base_url('history'));
+            $this->redirect('/URL_project/public/history');
         } else {
             $this->view('dashboard', ['error' => 'Failed to create link', 'title' => 'Dashboard']);
         }
@@ -126,9 +126,9 @@ class LinkController extends Controller {
         $userId = $_SESSION['user_id'];
         
         if ($this->linkModel->delete($id, $userId)) {
-            $this->redirect(base_url('history'));
+            $this->redirect('/URL_project/public/history');
         } else {
-            $this->redirect(base_url('history')); // Or show error
+            $this->redirect('/URL_project/public/history'); // Or show error
         }
     }
 }

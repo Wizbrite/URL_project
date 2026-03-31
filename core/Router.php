@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace core;
 
 /**
  * Router class handles URL routing and dispatching to controllers.
@@ -43,7 +43,7 @@ class Router {
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];
 
-        // Remove subdirectory if any (detects automatically if served from a folder)
+        // Remove subdirectory if any (e.g. /URL_project/)
         $basePath = dirname($_SERVER['SCRIPT_NAME']);
         if ($basePath !== '/' && strpos($uri, $basePath) === 0) {
             $uri = substr($uri, strlen($basePath));
@@ -52,7 +52,7 @@ class Router {
         foreach ($this->routes as $route) {
             if ($route['method'] === $method && preg_match($route['path'], $uri, $matches)) {
                 $handler = explode('@', $route['handler']);
-                $controllerName = "App\\Controllers\\" . $handler[0];
+                $controllerName = "app\\controllers\\" . $handler[0];
                 $methodName = $handler[1];
 
                 if (class_exists($controllerName)) {

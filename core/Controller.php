@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace core;
 
 /**
  * Base Controller class for the MVC framework.
@@ -18,7 +18,7 @@ class Controller {
      */
     protected function view($name, $data = []) {
         extract($data);
-        $viewFile = dirname(__DIR__) . '/App/Views/' . $name . '.php';
+        $viewFile = "../app/views/" . $name . ".php";
         
         if (file_exists($viewFile)) {
             require_once $viewFile;

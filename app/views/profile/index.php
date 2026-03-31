@@ -1,4 +1,4 @@
-<?php require_once __DIR__ . '/../../layout/header.php'; ?>
+<?php require_once '../app/views/layout/header.php'; ?>
 
 <div style="max-width: 800px; margin: 2rem auto;">
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
@@ -27,7 +27,7 @@
             </div>
         <?php endif; ?>
 
-        <form action="<?= base_url('profile/update') ?>" method="POST">
+        <form action="/URL_project/public/profile/update" method="POST">
             <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>">
 
             <div class="input-group">
@@ -58,4 +58,4 @@
     </div>
 </div>
 
-<?php require_once __DIR__ . '/../../layout/footer.php'; ?>
+<?php require_once '../app/views/layout/footer.php'; ?>

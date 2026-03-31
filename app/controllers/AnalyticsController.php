@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace app\controllers;
 
-use Core\Controller;
-use App\Models\Link;
-use App\Models\Click;
+use core\Controller;
+use app\models\Link;
+use app\models\Click;
 
 /**
  * AnalyticsController provides detailed click statistics for specific links.
@@ -20,7 +20,7 @@ class AnalyticsController extends Controller {
      */
     public function __construct() {
         if (!isset($_SESSION['user_id'])) {
-            $this->redirect(base_url('login'));
+            $this->redirect('/URL_project/public/login');
         }
         $this->linkModel = new Link();
         $this->clickModel = new Click();
@@ -41,7 +41,7 @@ class AnalyticsController extends Controller {
         // Verify link belongs to user
         $link = $this->linkModel->findBySlug($this->getSlugById($linkId)); // Simplification
         if (!$link || $link['user_id'] != $userId) {
-            $this->redirect(base_url('history'));
+            $this->redirect('/URL_project/public/history');
         }
 
         $clicks = $this->clickModel->getByLinkId($linkId);

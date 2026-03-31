@@ -7,8 +7,8 @@
  */
 
 // Load environment variables from .env (must run before autoloader touches env vars)
-require_once dirname(__DIR__) . '/Core/Env.php';
-\Core\Env::load(dirname(__DIR__));
+require_once dirname(__DIR__) . '/core/Env.php';
+\core\Env::load(dirname(__DIR__));
 
 // Autoload classes based on namespace
 spl_autoload_register(function ($class) {
@@ -23,7 +23,7 @@ spl_autoload_register(function ($class) {
 session_start();
 
 // Initialize the core Router
-use Core\Router;
+use core\Router;
 
 $router = new Router();
 

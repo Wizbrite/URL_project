@@ -1,9 +1,9 @@
-<?php require_once __DIR__ . '/../../layout/header.php'; ?>
+<?php require_once '../app/views/layout/header.php'; ?>
 
 <div style="max-width: 1000px; margin: 2rem auto;">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
         <h2 style="color: var(--primary-color);">My Shortened Links</h2>
-        <a href="<?= base_url('dashboard') ?>" class="btn btn-primary">+ New Link</a>
+        <a href="/URL_project/public/dashboard" class="btn btn-primary">+ New Link</a>
     </div>
 
     <div class="card" style="padding: 0; overflow: hidden;">
@@ -33,17 +33,17 @@
                             <td style="padding: 1rem;">
                                 <div style="display: flex; align-items: center; gap: 0.5rem;">
                                     <span style="color: var(--primary-color); font-weight: 600;">/<?= $link['short_slug'] ?></span>
-                                    <button onclick="copyToClipboard('<?= base_url($link['short_slug']) ?>')" class="btn" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; background: var(--border-color);">Copy</button>
+                                    <button onclick="copyToClipboard('<?= $_SERVER['HTTP_HOST'] ?>/URL_project/public/<?= $link['short_slug'] ?>')" class="btn" style="padding: 0.25rem 0.5rem; font-size: 0.75rem; background: var(--border-color);">Copy</button>
                                 </div>
                             </td>
                             <td style="padding: 1rem;">
-                                <a href="<?= base_url('analytics/' . $link['id']) ?>" style="text-decoration: none; color: var(--primary-color); font-weight: 600;"><?= $link['clicks'] ?></a>
+                                <a href="/URL_project/public/analytics/<?= $link['id'] ?>" style="text-decoration: none; color: var(--primary-color); font-weight: 600;"><?= $link['clicks'] ?></a>
                             </td>
                             <td style="padding: 1rem; font-size: 0.875rem; opacity: 0.7;">
                                 <?= date('Y-m-d', strtotime($link['created_at'])) ?>
                             </td>
                             <td style="padding: 1rem;">
-                                <form action="<?= base_url('links/delete/' . $link['id']) ?>" method="POST" onsubmit="return confirm('Are you sure?')">
+                                <form action="/URL_project/public/links/delete/<?= $link['id'] ?>" method="POST" onsubmit="return confirm('Are you sure?')">
                                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>">
                                     <button type="submit" style="background: none; border: none; color: #ef4444; cursor: pointer; font-size: 0.875rem;">Delete</button>
                                 </form>
@@ -74,4 +74,4 @@ function copyToClipboard(text) {
 }
 </script>
 
-<?php require_once __DIR__ . '/../../layout/footer.php'; ?>
+<?php require_once '../app/views/layout/footer.php'; ?>

@@ -1,9 +1,9 @@
-<?php require_once __DIR__ . '/../../layout/header.php'; ?>
+<?php require_once '../app/views/layout/header.php'; ?>
 
 <div style="display: flex; justify-content: center; align-items: center; min-height: 70vh;">
     <div class="card" style="width: 100%; max-width: 400px;">
         <h2 style="margin-bottom: 1.5rem; text-align: center; color: var(--primary-color);">Create Account</h2>
-        <form action="<?= base_url('register') ?>" method="POST">
+        <form action="/URL_project/public/register" method="POST">
             <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>">
 
             <div class="input-group">
@@ -25,9 +25,9 @@
             <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.75rem; margin-top: 1rem;">Register</button>
         </form>
         <p style="margin-top: 1.5rem; text-align: center; font-size: 0.875rem;">
-            Already have an account? <a href="<?= base_url('login') ?>" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">Login here</a>
+            Already have an account? <a href="/URL_project/public/login" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">Login here</a>
         </p>
     </div>
 </div>
 
-<?php require_once __DIR__ . '/../../layout/footer.php'; ?>
+<?php require_once '../app/views/layout/footer.php'; ?>

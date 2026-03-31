@@ -1,4 +1,4 @@
-<?php require_once __DIR__ . '/../../layout/header.php'; ?>
+<?php require_once '../app/views/layout/header.php'; ?>
 
 <div style="max-width: 1000px; margin: 2rem auto;">
     <div style="margin-bottom: 2rem;">
@@ -62,4 +62,4 @@
     </div>
 </div>
 
-<?php require_once __DIR__ . '/../../layout/footer.php'; ?>
+<?php require_once '../app/views/layout/footer.php'; ?>

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controllers;
+namespace app\controllers;
 
-use Core\Controller;
-use App\Models\User;
+use core\Controller;
+use app\models\User;
 
 /**
  * AuthController handles user authentication: login, registration, and logout.
@@ -27,7 +27,7 @@ class AuthController extends Controller {
      */
     public function showLogin() {
         if (isset($_SESSION['user_id'])) {
-            $this->redirect(base_url('dashboard'));
+            $this->redirect('/URL_project/public/dashboard');
         }
         $this->view('auth/login', ['title' => 'Login']);
     }
@@ -48,7 +48,7 @@ class AuthController extends Controller {
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            $this->redirect(base_url('dashboard'));
+            $this->redirect('/URL_project/public/dashboard');
         } else {
             $this->view('auth/login', ['error' => 'Invalid email or password', 'title' => 'Login']);
         }
@@ -61,7 +61,7 @@ class AuthController extends Controller {
      */
     public function showRegister() {
         if (isset($_SESSION['user_id'])) {
-            $this->redirect(base_url('dashboard'));
+            $this->redirect('/URL_project/public/dashboard');
         }
         $this->view('auth/register', ['title' => 'Register']);
     }
@@ -90,7 +90,7 @@ class AuthController extends Controller {
         }
 
         if ($this->userModel->create($username, $email, $password)) {
-            $this->redirect(base_url('login'));
+            $this->redirect('/URL_project/public/login');
         } else {
             $this->view('auth/register', ['error' => 'Something went wrong', 'title' => 'Register']);
         }
@@ -103,6 +103,6 @@ class AuthController extends Controller {
      */
     public function logout() {
         session_destroy();
-        $this->redirect(base_url('login'));
+        $this->redirect('/URL_project/public/login');
     }
 }

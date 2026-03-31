@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controllers;
+namespace app\controllers;
 
-use Core\Controller;
-use App\Models\Link;
+use core\Controller;
+use app\models\Link;
 use App\Models\Click;
 
 /**
@@ -18,7 +18,7 @@ class DashboardController extends Controller {
      */
     public function __construct() {
         if (!isset($_SESSION['user_id'])) {
-            $this->redirect(base_url('login'));
+            $this->redirect('/URL_project/public/login');
         }
         $this->linkModel = new Link();
     }

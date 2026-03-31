@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace app\models;
 
-use Core\Model;
+use core\Model;
 use PDO;
 
 /**

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'URL Shortener' ?></title>
-    <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>?v=1.1">
+    <link rel="stylesheet" href="/URL_project/public/assets/css/style.css?v=1.1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body data-theme="light">
@@ -16,16 +16,16 @@
         }
     ?>
     <nav class="card nav-container">
-        <a href="<?= base_url() ?>" class="nav-logo">URLShortener</a>
+        <a href="/URL_project/public/" class="nav-logo">URLShortener</a>
         <div class="nav-links">
             <?php if (isset($_SESSION['user_id'])): ?>
-                <a class="nav-link <?= isActive('/dashboard', $currentUri) ?>" href="<?= base_url('dashboard') ?>">Dashboard</a>
-                <a class="nav-link <?= isActive('/history', $currentUri) ?>" href="<?= base_url('history') ?>">History</a>
-                <a class="nav-link <?= isActive('/profile', $currentUri) ?>" href="<?= base_url('profile') ?>">Profile</a>
-                <a class="btn btn-primary" href="<?= base_url('logout') ?>">Logout</a>
+                <a class="nav-link <?= isActive('/dashboard', $currentUri) ?>" href="/URL_project/public/dashboard">Dashboard</a>
+                <a class="nav-link <?= isActive('/history', $currentUri) ?>" href="/URL_project/public/history">History</a>
+                <a class="nav-link <?= isActive('/profile', $currentUri) ?>" href="/URL_project/public/profile">Profile</a>
+                <a class="btn btn-primary" href="/URL_project/public/logout">Logout</a>
             <?php else: ?>
-                <a class="nav-link <?= isActive('/login', $currentUri) ?>" href="<?= base_url('login') ?>">Login</a>
-                <a href="<?= base_url('register') ?>" class="btn btn-primary">Register</a>
+                <a class="nav-link <?= isActive('/login', $currentUri) ?>" href="/URL_project/public/login">Login</a>
+                <a href="/URL_project/public/register" class="btn btn-primary">Register</a>
             <?php endif; ?>
             <button id="theme-toggle" class="btn theme-btn">
                 <span class="material-symbols-outlined">dark_mode</span>

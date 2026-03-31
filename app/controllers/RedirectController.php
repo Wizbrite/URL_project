@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Controllers;
+namespace app\controllers;
 
-use Core\Controller;
-use App\Models\Link;
-use App\Models\Click;
+use core\Controller;
+use app\models\Link;
+use app\models\Click;
 
 /**
  * RedirectController handles the core functionality of redirecting short slugs to long URLs.
@@ -51,7 +51,7 @@ class RedirectController extends Controller {
             exit();
         } else {
             // Handle 404
-            $this->redirect(base_url('?error=Link+not+found'));
+            $this->redirect('/URL_project/public/?error=Link+not+found');
         }
     }
 }

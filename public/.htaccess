@@ -4,10 +4,10 @@ RewriteEngine On
 # Uncomment ONE of the two RewriteBase lines below depending on your environment:
 #
 # Option A: Local Laragon/WAMP (Windows) – app is in a subdirectory
-# RewriteBase /URL_project/public/
-#
+RewriteBase /URL_project/public/
+
 # Option B: Unix production server using a virtual host (document root = public/)
-RewriteBase /
+# RewriteBase /
 
 # Redirect to index.php if the requested file/folder doesn't exist
 RewriteCond %{REQUEST_FILENAME} !-f

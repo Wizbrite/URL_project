@@ -1,9 +1,9 @@
-<?php require_once __DIR__ . '/../layout/header.php'; ?>
+<?php require_once '../app/views/layout/header.php'; ?>
 
 <div style="max-width: 800px; margin: 2rem auto;">
     <div class="card" style="margin-bottom: 2rem;">
         <h2 style="margin-bottom: 1.5rem; color: var(--primary-color);">Create New Short Link</h2>
-        <form action="<?= base_url('links/create') ?>" method="POST">
+        <form action="/URL_project/public/links/create" method="POST">
             <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>">
 
             <div class="input-group">
@@ -33,4 +33,4 @@
     </div>
 </div>
 
-<?php require_once __DIR__ . '/../layout/footer.php'; ?>
+<?php require_once '../app/views/layout/footer.php'; ?>
