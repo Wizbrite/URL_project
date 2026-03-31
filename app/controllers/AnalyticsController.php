@@ -20,7 +20,7 @@ class AnalyticsController extends Controller {
      */
     public function __construct() {
         if (!isset($_SESSION['user_id'])) {
-            $this->redirect('/URL_project/public/login');
+            $this->redirect(base_url('login'));
         }
         $this->linkModel = new Link();
         $this->clickModel = new Click();
@@ -41,7 +41,7 @@ class AnalyticsController extends Controller {
         // Verify link belongs to user
         $link = $this->linkModel->findBySlug($this->getSlugById($linkId)); // Simplification
         if (!$link || $link['user_id'] != $userId) {
-            $this->redirect('/URL_project/public/history');
+            $this->redirect(base_url('history'));
         }
 
         $clicks = $this->clickModel->getByLinkId($linkId);

@@ -17,7 +17,7 @@ class LinkController extends Controller {
      */
     public function __construct() {
         if (!isset($_SESSION['user_id'])) {
-            $this->redirect('/URL_project/public/login');
+            $this->redirect(base_url('login'));
         }
         $this->validateCsrfToken();
         $this->linkModel = new Link();
@@ -65,13 +65,13 @@ class LinkController extends Controller {
                 // Highly unlikely for random slug, but handle it
                 $slug = $this->generateSlug();
                 $this->linkModel->create($userId, $longUrl, $slug);
-                $this->redirect('/URL_project/public/history');
+                $this->redirect(base_url('history'));
             }
             return;
         }
 
         if ($this->linkModel->create($userId, $longUrl, $slug)) {
-            $this->redirect('/URL_project/public/history');
+            $this->redirect(base_url('history'));
         } else {
             $this->view('dashboard', ['error' => 'Failed to create link', 'title' => 'Dashboard']);
         }
@@ -126,9 +126,9 @@ class LinkController extends Controller {
         $userId = $_SESSION['user_id'];
         
         if ($this->linkModel->delete($id, $userId)) {
-            $this->redirect('/URL_project/public/history');
+            $this->redirect(base_url('history'));
         } else {
-            $this->redirect('/URL_project/public/history'); // Or show error
+            $this->redirect(base_url('history')); // Or show error
         }
     }
 }

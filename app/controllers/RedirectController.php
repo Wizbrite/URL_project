@@ -51,7 +51,7 @@ class RedirectController extends Controller {
             exit();
         } else {
             // Handle 404
-            $this->redirect('/URL_project/public/?error=Link+not+found');
+            $this->redirect(base_url('?error=Link+not+found'));
         }
     }
 }

@@ -20,7 +20,7 @@ class ProfileController extends Controller {
      */
     public function __construct() {
         if (!isset($_SESSION['user_id'])) {
-            $this->redirect('/URL_project/public/login');
+            $this->redirect(base_url('login'));
         }
         $this->validateCsrfToken();
         $this->userModel = new User();
@@ -64,7 +64,7 @@ class ProfileController extends Controller {
         $confirmPassword = $_POST['confirm_password'] ?? '';
 
         if (!empty($password) && $password !== $confirmPassword) {
-            $this->redirect('/URL_project/public/profile?error=Passwords+do not+match');
+            $this->redirect(base_url('profile?error=Passwords+do not+match'));
             return;
         }
 
@@ -72,9 +72,9 @@ class ProfileController extends Controller {
 
         if ($success) {
             $_SESSION['username'] = $username;
-            $this->redirect('/URL_project/public/profile?success=Profile+updated+successfully');
+            $this->redirect(base_url('profile?success=Profile+updated+successfully'));
         } else {
-            $this->redirect('/URL_project/public/profile?error=Failed+to+update+profile');
+            $this->redirect(base_url('profile?error=Failed+to+update+profile'));
         }
     }
 }

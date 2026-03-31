@@ -75,4 +75,21 @@ namespace {
             return ($value !== false && $value !== null) ? $value : $default;
         }
     }
+
+    if (!function_exists('base_url')) {
+        /**
+         * Build an absolute URL using the APP_URL env variable.
+         *
+         * On Laragon/Windows set APP_URL=http://localhost/URL_project/public
+         * On a Unix vhost set APP_URL=https://yourdomain.com
+         *
+         * @param string $path Optional path to append (leading slash optional).
+         * @return string
+         */
+        function base_url(string $path = ''): string
+        {
+            $base = rtrim(env('APP_URL', ''), '/');
+            return $path === '' ? $base : $base . '/' . ltrim($path, '/');
+        }
+    }
 }

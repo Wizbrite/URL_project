@@ -18,7 +18,7 @@ class DashboardController extends Controller {
      */
     public function __construct() {
         if (!isset($_SESSION['user_id'])) {
-            $this->redirect('/URL_project/public/login');
+            $this->redirect(base_url('login'));
         }
         $this->linkModel = new Link();
     }

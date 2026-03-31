@@ -18,7 +18,7 @@ class Controller {
      */
     protected function view($name, $data = []) {
         extract($data);
-        $viewFile = "../app/views/" . $name . ".php";
+        $viewFile = dirname(__DIR__) . '/app/views/' . $name . '.php';
         
         if (file_exists($viewFile)) {
             require_once $viewFile;
