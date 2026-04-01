@@ -42,17 +42,24 @@
 
     <script>
         const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('.material-symbols-outlined');
         const body = document.body;
+
+        const updateIcon = (theme) => {
+            themeIcon.textContent = theme === 'light' ? 'dark_mode' : 'light_mode';
+        };
 
         // Check for saved theme
         const savedTheme = localStorage.getItem('theme') || 'light';
         body.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
 
         themeToggle.addEventListener('click', () => {
             const currentTheme = body.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             body.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
         });
     </script>
 </body>
